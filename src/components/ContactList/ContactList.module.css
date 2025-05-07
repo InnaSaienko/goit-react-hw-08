@@ -1,0 +1,9 @@
+.list {
+    border: 2px solid  #63529a;
+    border-radius: 8px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    margin-top: 80px;
+}
