@@ -2,6 +2,8 @@ import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {selectName} from "../../redux/auth/selectors.js";
 import {logout} from "../../redux/auth/operations.js";
+import {NavLink} from "react-router-dom";
+import s from "../Layout/Navigation/Navigation.module.css";
 
 const UserMenu = () => {
     const dispatch = useDispatch();
@@ -12,9 +14,8 @@ const UserMenu = () => {
     };
     return (
         <div className="user-menu">
-            <h3>Hello: {userName}</h3>
-            <p>For logout you can push button</p>
-            <button onClick={handleLogOut}>Log Out</button>
+            <h3>{userName}</h3>
+            <NavLink onClick={handleLogOut} className={s.link} to="/">Log Out< /NavLink>
         </div>
     );
 };
