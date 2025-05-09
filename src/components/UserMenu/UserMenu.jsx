@@ -13,8 +13,8 @@ const UserMenu = () => {
         dispatch(logout());
     };
     return (
-        <div className="user-menu">
-            <h3>{userName}</h3>
+        <div className={s.userMenu}>
+            <div>{userName}</div>
             <NavLink onClick={handleLogOut} className={s.link} to="/">Log Out< /NavLink>
         </div>
     );

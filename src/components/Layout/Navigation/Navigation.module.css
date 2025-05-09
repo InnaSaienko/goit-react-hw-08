@@ -17,3 +17,12 @@
     text-decoration: underline;
     color: #faf8f8;
 }
+
+.userMenu {
+    display: flex;
+    gap: 20px;
+    padding: 10px 20px;
+    font-size: 26px;
+    font-weight: bold;
+    align-items: center;
+}

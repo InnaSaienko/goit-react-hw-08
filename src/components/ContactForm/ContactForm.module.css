@@ -1,32 +1,42 @@
 .form {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    gap: 10px;
     border: 2px solid  #63529a;
     border-radius: 8px;
     padding: 10px;
-    width: 20vw;
-;
-}
-.label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    width: 80vw;
+    margin: 0 auto;
+
+    & .input_group {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        & .label {
+            display: block;
+            font-weight: bold;
+        }
+
+        & .field {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 2px;
+            margin-top: 3px;
+        }
+
+        & .error-message {
+            color: red;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+    }
 }
 
-.field {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
 
-.error-message {
-    color: red;
-    font-size: 12px;
-    margin-bottom: 5px;
-}
+
+
+
 
 .required {
     color: darkviolet;
@@ -36,7 +46,6 @@
 
 .button {
     height: 40px;
-    margin-top: 20px;
     background-color: #9382c8;
     color: white;
     border: none;

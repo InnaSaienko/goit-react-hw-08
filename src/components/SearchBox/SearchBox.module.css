@@ -1,21 +1,17 @@
 .searchBox {
     display: flex;
     flex-direction: column;
-    border: 2px solid  #63529a;
+    ustify-content: space-around;
+    border: 2px solid #63529a;
     border-radius: 8px;
     padding: 10px;
-    margin-top: 20px;
-    width: 20vw;
+    margin: 0 auto;
+    width: 80vw;
 }
-.label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
+
 .input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 20px;
+    padding: 2px;
+    margin-top: 3px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }

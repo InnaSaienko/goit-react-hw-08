@@ -1,4 +1,5 @@
 import React, {useId} from 'react';
+import s from "../ContactForm/ContactForm.module.css";
 import {Field} from "formik";
 
 const CustomInput = ({name}) => {
@@ -8,16 +9,16 @@ const CustomInput = ({name}) => {
     return (
         <Field name={name}>
             {({ field, meta }) => (
-                <div>
-                    <label htmlFor={id} className="label">{name.charAt(0).toUpperCase() + name.slice(1)}</label>
+                <div className={s.input_group}>
+                    <label htmlFor={id} className={s.label}>{name.charAt(0).toUpperCase() + name.slice(1)}</label>
                     <input
                         id={id}
                         type={isPasswordField ? 'password' : 'text'}
-                        className="input"
+                        className={s.field}
                         placeholder={`Enter your ${name}`}
                         {...field}
                     />
-                    {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
+                    {meta.touched && meta.error ? <div className={s.errorMessage}>{meta.error}</div> : null}
                 </div>
             )}
         </Field>

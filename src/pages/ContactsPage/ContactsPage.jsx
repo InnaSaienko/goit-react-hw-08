@@ -15,10 +15,9 @@ const ContactsPage = () => {
 
     return (
         <>
-            <h3>Contacts page</h3>
-            {/*<ContactForm/>*/}
-            {/*<SearchBox/>*/}
-            {/*<ContactList/>*/}
+            <ContactForm/>
+            <SearchBox/>
+            <ContactList/>
         </>
     );
 };

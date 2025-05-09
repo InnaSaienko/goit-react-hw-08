@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import CustomInput from "./CustomInput.jsx";
 import {useDispatch} from "react-redux";
 import {login} from "../../redux/auth/operations.js";
+import s from "../ContactForm/ContactForm.module.css";
 
 export const LoginForm = () => {
     const regEmail = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i;
@@ -37,13 +38,13 @@ export const LoginForm = () => {
 
     return (
         <div className="form-wrapper">
+            <h2 style={{ textAlign: 'center' }}>Registration of a new user</h2>
             <Formik validationSchema={applySchema} initialValues={initialValues} onSubmit={onSubmit}>
-                <Form className="form">
-                    <h2 className="form__title">Registration of a new user</h2>
+                <Form className={s.form}>
                     {Object.keys(initialValues).map((key) => {
                         return <CustomInput key={key} name={key}/>
                     })}
-                    <button type="submit" className="button">Login</button>
+                    <button type="submit" className={s.button}>Login</button>
                 </Form>
             </Formik>
         </div>

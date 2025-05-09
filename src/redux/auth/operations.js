@@ -13,7 +13,7 @@ const clearAuthHeader = () => {
     axios.defaults.headers.common.Authorization = "";
 };
 
-export const register = createAsyncThunk('register', async (body, thunkAPI) => {
+export const register = createAsyncThunk('auth/register', async (body, thunkAPI) => {
     try {
         const response = await goitAPI.post('/users/signup', body);
         setAuthHeader(response.data.token);
@@ -23,7 +23,7 @@ export const register = createAsyncThunk('register', async (body, thunkAPI) => {
     }
 });
 
-export const login = createAsyncThunk('login', async (body, thunkAPI) => {
+export const login = createAsyncThunk('auth/login', async (body, thunkAPI) => {
     try {
         const response = await goitAPI.post('/users/login', body);
         setAuthHeader(response.data.token);
@@ -33,10 +33,28 @@ export const login = createAsyncThunk('login', async (body, thunkAPI) => {
     }
 });
 
-export const logout = createAsyncThunk('logout', async (_, thunkAPI) => {
+export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     try {
        await goitAPI.post('/users/logout');
         clearAuthHeader();
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+    }
+});
+
+export const refreshPage = createAsyncThunk('auth/refreshPage', async (_, thunkAPI) => {
+    try {
+        const savedToken = thunkAPI.getState().auth.token;
+        console.log("saved token:", savedToken);
+
+        if (!savedToken) {
+            return thunkAPI.rejectWithValue('Token is not exist!');
+        }
+
+        setAuthHeader(savedToken);
+        const response = await goitAPI.get('users/current');
+        console.log()
+        return response.data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
     }

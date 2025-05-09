@@ -10,16 +10,19 @@ function SearchBox() {
         dispatch(changeFilter(filter));
     };
     return (
-        <div className={s.searchBox}>
-            <label className={s.label}>Find contact by name</label>
-            <input
-                type="text"
-                placeholder="Search contacts..."
-                name="filter"
-                onChange={(e) => newFilter(e.target.value) }
-                className={s.input}
-            />
+        <div style={{marginTop: '10px'}}>
+            <div className={s.searchBox}>
+                <label className={s.label}> Find contact by name </label>
+                <input
+                    type="text"
+                    placeholder="Search contacts..."
+                    name="filter"
+                    onChange={(e) => newFilter(e.target.value) }
+                    className={s.input}
+                />
+            </div>
         </div>
+
 
     );
 }

@@ -10,7 +10,7 @@ const ContactList = () => {
     const error = useSelector(selectError);
 
     return (
-        <>
+        <div style={{marginTop: '10px'}}>
             {isLoading && !error && <b>Request in progress...</b>}
             <div className={s.list}>
                 {filteredContacts.length === 0 ? (
@@ -22,7 +22,7 @@ const ContactList = () => {
                 )
                 }
             </div>
-        </>
+        </div>
     )
         ;
 }
