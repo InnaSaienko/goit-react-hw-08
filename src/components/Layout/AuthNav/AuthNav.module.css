@@ -1,0 +1,16 @@
+.link {
+    text-decoration: none;
+    color: #9382c8;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.link:hover {
+    color: #6344ed;
+}
+
+@media (width < 475px) {
+    .link {
+        font-size: 16px;
+    }
+}

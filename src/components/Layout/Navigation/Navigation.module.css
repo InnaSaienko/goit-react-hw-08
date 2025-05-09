@@ -1,0 +1,19 @@
+.header {
+    padding: 10px 20px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.link {
+    color: #fff;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.active {
+    color: #d3c7dd;
+}
+.link:hover {
+    text-decoration: underline;
+    color: #faf8f8;
+}

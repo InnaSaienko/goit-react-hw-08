@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {registerThunk} from "./operations.js";
+import {login, logout, register} from "./operations.js";
 
 const initialState = {
     user: {
@@ -15,11 +15,21 @@ const slice = createSlice({
     name: "auth",
     initialState,
     extraReducers: builder => {
-        builder.addCase(registerThunk.fulfilled, (state, action) => {
+        builder.addCase(register.fulfilled, (state, action) => {
             state.user = action.payload.user;
             state.token = action.payload.token;
             state.isLoggedIn = true;
         })
+            .addCase(login.fulfilled, (state, action) => {
+                state.user = action.payload.user;
+                state.token = action.payload.token;
+                state.isLoggedIn = true;
+            })
+            .addCase(logout.fulfilled, (state) => {
+                state.user = { name: null, email: null };
+                state.token = null;
+                state.isLoggedIn = false;
+            })
     }
 });
 

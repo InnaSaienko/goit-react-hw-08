@@ -1,14 +1,13 @@
 import './App.module.css'
-import {Route, Routes} from 'react-router-dom';
-import HomePage from "./pages/HomePage/HomePage.jsx";
+import Layout from "./components/Layout/Layout.jsx";
+import RouterSet from "./components/Routes/RouterSet.jsx";
 
 const App = () => {
 
     return (
         <>
-            <Routes>
-                <Route path='/' element={<HomePage/>}/>
-            </Routes>
+            <Layout />
+            <RouterSet />
         </>
     )
 }
