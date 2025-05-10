@@ -19,7 +19,6 @@ export const LoginForm = () => {
     });
 
     const onSubmit = async (values, options) => {
-        console.log(values, options)
         try {
             await dispatch(login({email: values.email, password: values.password}));
             alert(`User is ${values.email} logged`);
@@ -38,7 +37,7 @@ export const LoginForm = () => {
 
     return (
         <div className="form-wrapper">
-            <h2 style={{ textAlign: 'center' }}>Registration of a new user</h2>
+            <h2 style={{ textAlign: 'center' }}>Login</h2>
             <Formik validationSchema={applySchema} initialValues={initialValues} onSubmit={onSubmit}>
                 <Form className={s.form}>
                     {Object.keys(initialValues).map((key) => {
