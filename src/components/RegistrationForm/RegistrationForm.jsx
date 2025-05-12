@@ -22,7 +22,6 @@ export const RegistrationForm = () => {
     const onSubmit = async (values, options) => {
         try {
             await dispatch(login({name: values.name, email: values.email, password: values.password}));
-            alert(`User is ${values.email} logged`);
             options.resetForm();
         } catch (e) {
             const error = {};
