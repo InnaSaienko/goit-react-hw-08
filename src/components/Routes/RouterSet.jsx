@@ -17,8 +17,7 @@ const RouterSet = () => {
         <Suspense fallback={<Loader />}>
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route index element={<RestrictedRoute component={<HomePage />} redirectTo='/contacts' />} />
-                <Route path="/login" element={<LoginPage />} />
+                <Route path="/login" element={<RestrictedRoute component={<LoginPage />} redirectTo='/contacts'/>} />
                 <Route path="/contacts" element={<PrivateRoute><ContactsPage /></PrivateRoute>} />
                 <Route path="/register" element={<RestrictedRoute component={<RegistrationPage />} redirectTo='/contacts' />} />
             </Routes>
