@@ -1,6 +1,5 @@
-import {createSelector, createSlice, isAnyOf} from "@reduxjs/toolkit";
+import {createSlice, isAnyOf} from "@reduxjs/toolkit";
 import {addContact, deleteContact, fetchContacts} from "./operations.js";
-import {selectNameFilter} from "../filters/slice.js";
 import {logout} from "../auth/operations.js";
 
 const initialState = {
@@ -9,16 +8,11 @@ const initialState = {
     error: null,
 };
 
-export const selectContacts = (state) => state.contacts.items;
-export const selectLoading = (state) => state.contacts.loading;
-export const selectError = (state) => state.contacts.error;
-
 const handelFulfilled = (state, action) => {
     state.isLoading = false;
     state.error = null;
     state.items = action.payload;
 };
-
 
 const slice = createSlice({
     name: "contacts",
@@ -47,20 +41,5 @@ const slice = createSlice({
             })
     },
 });
-
-
-export const selectFilteredContacts = createSelector(
-    [selectContacts, selectNameFilter],
-    (contacts, filter) => {
-        if (filter) {
-            return contacts.filter(
-                (contact) =>
-                    contact.name.toLowerCase().includes(filter.toLowerCase()) ||
-                    contact.number.includes(filter)
-            );
-        }
-        return contacts;
-    }
-);
 
 export const contactsReducer = slice.reducer;
