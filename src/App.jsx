@@ -1,6 +1,6 @@
 import './App.module.css'
 import Layout from "./components/Layout/Layout.jsx";
-import RouterSet from "./components/Routes/RouterSet.jsx";
+import Routes from "./components/Routes/RouterSet.jsx";
 import {selectIsRefreshing} from "./redux/auth/selectors.js";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
@@ -17,8 +17,9 @@ const App = () => {
     return (
         <>
             {isRefreshing && null}
-            <Layout/>
-            <RouterSet/>
+            <Layout>
+                <Routes />
+            </Layout>
         </>
     )
 }
