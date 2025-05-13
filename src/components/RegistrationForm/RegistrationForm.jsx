@@ -3,7 +3,7 @@ import {Form, Formik} from "formik";
 import * as Yup from "yup";
 import CustomInput from "../LoginForm/CustomInput.jsx";
 import {useDispatch} from "react-redux";
-import {login} from "../../redux/auth/operations.js";
+import {register} from "../../redux/auth/operations.js";
 import s from "../ContactForm/ContactForm.module.css";
 
 export const RegistrationForm = () => {
@@ -21,7 +21,7 @@ export const RegistrationForm = () => {
 
     const onSubmit = async (values, options) => {
         try {
-            await dispatch(login({name: values.name, email: values.email, password: values.password}));
+            await dispatch(register({name: values.name, email: values.email, password: values.password}));
             options.resetForm();
         } catch (e) {
             const error = {};
