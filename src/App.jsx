@@ -14,11 +14,12 @@ const App = () => {
         dispatch(refreshPage());
     }, [dispatch]);
 
-    return (isRefreshing ? null :
-            (<>
-                <Layout/>
-                <RouterSet/>
-            </>)
+    return (
+        <>
+            {isRefreshing && null}
+            <Layout/>
+            <RouterSet/>
+        </>
     )
 }
 
