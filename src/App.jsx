@@ -5,6 +5,7 @@ import {selectIsRefreshing} from "./redux/auth/selectors.js";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {refreshPage} from "./redux/auth/operations.js";
+import Loader from "./components/Loader/Loader.jsx";
 
 const App = () => {
     const dispatch = useDispatch();
@@ -16,10 +17,12 @@ const App = () => {
 
     return (
         <>
-            {isRefreshing && null}
-            <Layout>
+            {isRefreshing ?
+                (<Loader />) : (
+                <Layout>
                 <Routes />
-            </Layout>
+                </Layout>)
+            }
         </>
     )
 }
